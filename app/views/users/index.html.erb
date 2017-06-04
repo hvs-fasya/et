@@ -1,0 +1,23 @@
+<h1>Users List</h1>
+<br>
+<table class='table table-striped'>
+  <tr>
+    <th>#</th>
+    <th></th>
+    <th>Name</th>
+    <th>E-mail</th>
+    <th>Contacts</th>
+    <th></th>
+  </tr>
+ 
+<% @users.each_with_index do |user,i| %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= link_to fa_icon("edit"), edit_user_path(user) %></td>
+    <td><%= user.fullname %></td>
+    <td><%= user.email %></td>
+    <td><%= user.contacts %></td>
+    <td><%= link_to fa_icon("remove"), user_path(user), method: :delete %></td>
+  </tr>
+<% end %>
+</table>
