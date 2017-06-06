@@ -19,6 +19,7 @@
 
 /node_modules
 /yarn-error.log
+yarn.lock
 
 .byebug_history
 .ruby-version
@@ -26,3 +27,4 @@
 
 #config/database.yml
 config/cable.yml
+config/deploy_old.rb
