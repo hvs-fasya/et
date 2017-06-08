@@ -1,0 +1,28 @@
+<div class="clearfix">
+  <h1 class="inline">Create New User Here </h1>
+  <%= fa_icon("arrow-down 2x", :class => "inline") %>
+</div>
+<br>
+<%= form_for :user, url: users_path(), html: { class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+  	<%= label(:user, :fullname, class: "col-sm-offset-1 col-sm-2 control-label") %>
+  	<div class="col-sm-6">
+  	  <%= f.text_field :fullname, :class => "form-control", :placeholder => "Пупкин Петр Семенович"  %>
+  	</div>
+  </div>
+  <div class="form-group">
+  	<%= label(:user, :email, class: " col-sm-offset-1 col-sm-2 control-label") %>
+  	<div class="col-sm-6">
+  	  <%= f.text_field :email, :class => "form-control", :placeholder => "example@example.com, example@example.com"  %>
+  	</div>
+  </div>
+  <div class="form-group">
+  	<%= label(:user, :contacts, class: "col-sm-offset-1 col-sm-2 control-label") %>
+  	<div class="col-sm-6">
+  	  <%= f.text_field :contacts, :class => "form-control", :placeholder => "+79031234567" %><br />
+  	</div>
+  </div>
+  <div class="col-sm-offset-4">
+    <%= f.submit 'Save User', :class => "btn btn-primary" %>
+  </div>
+<% end %>

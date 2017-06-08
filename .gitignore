@@ -27,4 +27,5 @@ yarn.lock
 
 #config/database.yml
 config/cable.yml
+config/nginx.conf
 config/deploy_old.rb
