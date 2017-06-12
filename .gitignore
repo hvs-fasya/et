@@ -29,3 +29,5 @@ yarn.lock
 config/cable.yml
 config/nginx.conf
 config/deploy_old.rb
+
+et.sublime-workspace

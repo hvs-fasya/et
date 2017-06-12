@@ -1,0 +1,23 @@
+<%= form_tag( form_action, class: "form-horizontal", method: form_method) do %>
+  <div class="form-group">
+  	<%= label_tag :fullname, nil, class: "col-sm-offset-1 col-sm-2 control-label" %>
+  	<div class="col-sm-6">
+  	  <%= text_field_tag :fullname, @user.fullname, class: "form-control", placeholder: "Пупкин Петр Семенович"  %>
+  	</div>
+  </div>
+  <div class="form-group">
+  	<%= label_tag :email, nil, class: "col-sm-offset-1 col-sm-2 control-label" %>
+  	<div class="col-sm-6">
+  	  <%= text_field_tag :email, @user.email, class: "form-control", :placeholder => "example@example.com, example@example.com"  %>
+  	</div>
+  </div>
+  <div class="form-group">
+  	<%= label_tag :contacts, nil, class: "col-sm-offset-1 col-sm-2 control-label" %>
+  	<div class="col-sm-6">
+  	  <%= text_field_tag :contacts, @user.contacts, class: "form-control", :placeholder => "+79031234567" %><br />
+  	</div>
+  </div>
+  <div class="col-sm-offset-4">
+    <%= submit_tag 'Save User', :class => "btn btn-primary" %>
+  </div>
+<% end %>

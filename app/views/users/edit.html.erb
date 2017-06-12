@@ -1,1 +1,6 @@
-Here shoul be 'edit' view
+<div class="clearfix">
+  <h1 class="inline">Edit User Here</h1>
+</div>
+<br>
+<%= render partial: "form", user: @user,
+  locals: { form_method: :patch, form_action: "/user/update" } %>

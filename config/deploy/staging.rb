@@ -1,3 +1,4 @@
+set :rails_env,   "staging"
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

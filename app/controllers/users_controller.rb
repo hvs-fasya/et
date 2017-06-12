@@ -11,24 +11,37 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = OpenStruct.new(params[:user])
-	    if !@user
-	      redirect_to user_path(@user)
+		@user = make_user
+		@users = fake_users
+		@users.push(@user)
+	    if @user
+	      render 'index'
 	    else
 	      flash[:danger] = "Smth went wrong (((" 
-	      redirect_to edit_user_path(@user)
+	      render 'new'
 	    end
 	end
 
 	def show
+		@user = make_user
 	end
 
 	def edit
-		
+		@user = make_user
 	end
 
 	def update
-		
+		@user = make_user
+		if @user
+			render 'show'
+		end
+	end
+
+	def destroy
+		@user = make_user
+		@users = fake_users
+		@users.delete_if{ |i| i.fullname == @user.fullname }
+		render 'index'
 	end
 
 	private
@@ -48,6 +61,13 @@ class UsersController < ApplicationController
 			:email => Array.new() << 'ogly@example.com',
 			:contacts => 'contacts3'))
 		users
+	end
+
+	def make_user
+		OpenStruct.new(
+			:fullname => params[:fullname],
+			:email => params[:email].split(' ').reject{ |e| e.empty? },
+			:contacts => params[:contacts])
 	end
 	
 end

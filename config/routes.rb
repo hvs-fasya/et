@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 root 'home#index'
 
 	resources :users
-
+	get '/user', to: "users#show"
+	get '/user/edit', to: "users#edit"
+	patch '/user/update', to: "users#update"
+	delete '/user/delete', to: "users#destroy"
 end
