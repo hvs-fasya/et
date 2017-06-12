@@ -2,4 +2,4 @@
 <td class="table-texts no-wrap"><%= link_to user.fullname, "/user?#{user.each_pair.to_h.to_query}" %></td>
 <td class="table-texts"><%= user.email.join(" ") %></td>
 <td class="table-texts"><%= user.contacts %></td>
-<td><%= link_to fa_icon("remove 2x"), "user/delete?#{user.each_pair.to_h.to_query}", method: :delete %></td>
+<td><%= link_to fa_icon("remove 2x"), "/user/delete?#{user.each_pair.to_h.to_query}", method: :delete %></td>
