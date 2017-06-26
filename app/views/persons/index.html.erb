@@ -1,0 +1,32 @@
+<div class="clearfix">
+  <h1 class="inline">Persons List</h1>
+  <%= link_to fa_icon("plus 3x"), new_person_path(), :class => "btn btn-primary inline pull-right" %>
+</div>
+<br>
+<p class="lead">
+  hier sind unsere wertvollen Nutzer
+</p>
+<%= link_to "Seed 5 Fake Persons", "person_list/seed", :class => "btn btn-primary inline pull-right" %>
+<br>
+<table class='table table-striped'>
+  <tr>
+    <th class="table-digits th-5">#</th>
+    <th class="th-5"></th>
+    <th>Name</th>
+    <th class="th-20">E-mail</th>
+    <th class="th-20">Contacts</th>
+    <th class="th-5"></th>
+  </tr>
+  <tbody>
+  <% @persons.each do |id,person| %>
+  <br>
+    <tr>
+      <td class="table-digits"><%= id %></td>
+      <%= render partial: "person_row", locals: {person: person} %>
+    </tr>
+<% end %>
+</tbody>
+</table>
+<% if !@persons.empty? %>
+  <%= link_to "Clear Persons list", "person_list/clear", :class => "btn btn-primary inline pull-right" %>
+<% end %>

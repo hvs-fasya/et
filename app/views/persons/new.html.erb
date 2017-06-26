@@ -1,0 +1,7 @@
+<div class="clearfix">
+  <h1 class="inline">Create New Person Here </h1>
+  <%= fa_icon("arrow-down 2x", :class => "inline") %>
+</div>
+<br>
+<%= render partial: "form",
+ locals: {form_method: "post", form_action: "/persons"} %>

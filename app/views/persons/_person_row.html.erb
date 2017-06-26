@@ -1,0 +1,5 @@
+<td><%= link_to fa_icon("edit 2x"), "/persons/#{person.id}/edit" %></td>
+<td class="table-texts no-wrap"><%= link_to person.fullname, "/persons/#{person.id}" %></td>
+<td class="table-texts"><%= person.email %></td>
+<td class="table-texts"><%= person.contacts %></td>
+<td><%= link_to fa_icon("remove 2x"), "/persons/#{person.id}", method: :delete %></td>
