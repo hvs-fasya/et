@@ -48,13 +48,12 @@ class PersonsController < ApplicationController
 	end
 
 	def clear
-		reset_session
+		File.open(PersonFileStore::PERSONS_FILE_PATH, "w") {|f| f << {}.to_json}
 		redirect_to action: 'index'
 	end
 
 	def seed_faked
 		faked_persons = @person_factory.build_fake_person_list 5
-		p "faked #{faked_persons}"
 		faked_persons.each{|person| @person_manager.add(person)}
 		@person_manager.save_persons
 		redirect_to action: 'index'
@@ -63,7 +62,8 @@ class PersonsController < ApplicationController
 	private
 
 	def set_person_manager
-		@person_manager = PersonManager.new(PersonSessionStore.new(session))
+		@person_manager = PersonManager.new(PersonFileStore.new())
+		# @person_manager = PersonManager.new(PersonSessionStore.new(session))
 		@person_factory = PersonFactory.new(@person_manager.max_id)
 	end
 
